@@ -1,9 +1,9 @@
 ---
 erp:
-  default: "MOCK_SYSTEM"
+  default: "S4HANA"
   systems:
 #    - alias: "ERP_SYSTEM"
 #      uri: "https://myXXXXXX.s4hana.ondemand.com"
 #      proxy: "http://proxy:8080"
-    - alias: "MOCK_SYSTEM"
-      uri: "https://odata-mock-server-shy-sitatunga.cfapps.eu10.hana.ondemand.com/"
+    - alias: "S4HANA"
+      uri: "https://odata-mock-server-shiny-kudu.cfapps.us30.hana.ondemand.com/"

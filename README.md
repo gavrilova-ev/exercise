@@ -45,18 +45,16 @@ We will share our source code via [GitHub](https://github.com/). So, you will re
 ## <a name="task0">Task 0: Preparation steps</a>
 Before, we get started with the actual implementation, we need to perform some preparation steps and familiarize ourselves with the project structure.
 * We provide you with the GitHub repository for this codejam that includes the skeleton of the project you will extend with the S/4HANA and Leonardo ML Foundation integration capabilities. All you need to do is to fork this repository. All the steps in this code jam will be executed in your own fork of this repository.
-```diff
-- TODO: add screenshot -> forking the repo (after the repo is published)
-```
+
 * Open and login into WebIDE
 * Now, we will clone our new forked repository into our WebIDE workspace. In the WebIDE, choose the "Development" perspective, right click on "Workspace" -> Git -> Clone repository -> paste the URL of your fork of the code jam and choose "Clone". This will create a local copy of your project in WebIDE. After the request is completed successfully, we can start investigating our predefined project structure.
 * Investigate your project structure:
   * **.che** is a technical folder created automatically by WebIDE and is required to correctly interpret the projecgt structure and to build and run project
   * Artifacts **cx-server**, **Jenkinsfile**, **pipeline_config.yml** help to set up and customize CI/CD server and the pipeline for your SDK based solutions. Those resources will be used to set up CI/CD pipeline for our application later. We also highly encourage you to check out [the related resources after the workshop](https://blogs.sap.com/2017/09/20/continuous-integration-and-delivery/)
-  * **srv** folder and its artifacts:
-    ** **application** folder contains the business logic that we will extend in this code jam. It also contains the JS based frontend components in the **webapp** subfolder. We will only focus on backend components, though.
-    ** **integration-tests** and **unit-tests** folders include integration and unit tests. We have already prepared the integration tests for your application, they do not pass yet, though, and therefore are ignored for now.
-    ** **pom.xml** is a [maven configuration file](https://maven.apache.org/pom.html)
+  * **srv** folder and its artifacts: <br>
+    **application** folder contains the business logic that we will extend in this code jam. It also contains the JS based frontend components in the **webapp** subfolder. We will only focus on backend components, though.
+    **integration-tests** and **unit-tests** folders include integration and unit tests. We have already prepared the integration tests for your application, they do not pass yet, though, and therefore are ignored for now. <br>
+    **pom.xml** is a [maven configuration file](https://maven.apache.org/pom.html)
   * **.gitignore** file is used to exclude certain files in your working directory from your Git history
   * **mta.yaml** is a build and deployment descriptor to be able to build and deploy the application in SAP Cloud Platform, Cloud Foundry.
   * **solutions** folder contains the solutions for the coding tasks of this code jam. Use it wisely :)
@@ -66,18 +64,14 @@ Before we get started with the development, let us familiarize ourselves on how 
 
 While building the application, we will execute integration tests. For the integration tests, you need to provide the URL and credentials of your SAP S/4HANA system.
 * Open the file `srv/integration-tests/src/test/resources/systems.yml`.
-As we will be using the parameters of the provided SAP S/4HANA system in this code jam, please make sure that the file contains the following content. 
-```diff
-- TODO: Put correct S4 URL
-```
-
+As we will be using the parameters of the provided SAP S/4HANA system in this code jam, please make sure that the file contains the following content.
 ```
 ---
 erp:
   default: "S4HANA"
   systems:
     - alias: "S4HANA"
-      uri: "https://odata-mock-server-shy-sitatunga.cfapps.eu10.hana.ondemand.com/"
+      uri: "https://odata-mock-server-shiny-kudu.cfapps.us30.hana.ondemand.com/"
 
 ```
 * In the same directory, create a `credentials.yml` file used during tests with the following content and make sure to put the correct name and password provided by the code jam instructor.
@@ -90,6 +84,8 @@ credentials:
 ```
 
 After this, right clink on the "srv" folder and choose Build -> Build and Run Tests. Wait till the build finishes and make sure that you get "SUCCESS" for all the executed steps: Root, Application, Unit Tests, Integration Tests.
+
+Please note, if you are using SAP WebIDE on SAP CLoud Platform, you might need to explicitly configure SAP Cloud Platform, Cloud Foundry environment. This can be done in Preferences -> Cloud Foundry. >ou can set up API Endpoint, Organization, and Space there and also install Build in your space, which is required for the deployment of applications from WebIDE.  
 
 Now, after we got familiar with the local testing of the application, let us start with the first step: integrating SAP S/4HANA into this application using the SAP S/4HANA Cloud SDK.
 
