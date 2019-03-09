@@ -24,8 +24,8 @@ stages:
       - '**/com/sap/cloud/s4hana/examples/addressmgr/blockchain/**'
   integrationTests:
     credentials:
-      - alias: 'MOCK_SYSTEM'
-        credentialId: 'MOCK'
+      - alias: 'S4HANA'
+        credentialId: 'S4HANA'
 
 #  s4SdkQualityChecks:
 #    jacocoExcludes:
