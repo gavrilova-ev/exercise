@@ -7,8 +7,6 @@ modules:
    path: srv
    parameters:
       memory: 1024M
-   properties:
-      ALLOW_MOCKED_AUTH_HEADER: 'true'   
    provides:
     - name: srv_api
       properties:
