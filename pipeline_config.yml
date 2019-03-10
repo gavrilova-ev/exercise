@@ -32,9 +32,6 @@ stages:
 #      - ''
 #    nonErpDestinations:
 #      - ''
-#  s4SdkQualityChecks:
-#    jacocoExcludes:
-#      - '**/com/sap/cloud/s4hana/examples/addressmgr/**'
 
   productionDeployment:
     cfTargets:
@@ -42,4 +39,3 @@ stages:
         space: 'dev'
         apiEndpoint: 'https://api.cf.us30.hana.ondemand.com'
         credentialsId: 'cf-deploy'
-        
