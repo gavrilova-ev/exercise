@@ -55,6 +55,7 @@ public class TranslateServlet extends HttpServlet
             // TODO 2. Using the Destination object construct the API endpoint for API sandbox by combining info from destination and TRANSLATION_PATH. Create HttpPost request using the created URL.
             HttpPost postRequest = new HttpPost(mlDestination.getUri().resolve(TRANSLATION_PATH));
 
+
             // TODO 3. Set additional postRequest headers: "Content-Type", "application/json" and "Accept", "application/json;charset=UTF-8"
             postRequest.setHeader("Content-Type", "application/json");
             postRequest.setHeader("Accept", "application/json;charset=UTF-8");
