@@ -1,14 +1,12 @@
 ID: cloud-s4-sdk-book
 _schema-version: '2.1'
-version: 0.0.1 
+version: 0.0.1
 modules:
  - name: srv
    type: java
    path: srv
    parameters:
       memory: 1024M
-   properties:	
-      ALLOW_MOCKED_AUTH_HEADER: 'true'  
    provides:
     - name: srv_api
       properties:
