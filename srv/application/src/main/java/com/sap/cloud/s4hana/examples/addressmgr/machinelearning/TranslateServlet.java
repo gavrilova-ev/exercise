@@ -50,24 +50,24 @@ public class TranslateServlet extends HttpServlet
 
             // TODO: Prepare HttpPost query to translate "input"
             // TODO 1. Get the Destination object from the SCP destination configuration using the S/4HANA Cloud SDK
-            // final Destination mlDestination = DestinationAccessor.getDestination("sap_api_business_hub_ml");
+             final Destination mlDestination = DestinationAccessor.getDestination("sap_api_business_hub_ml");
 
             // TODO 2. Using the Destination object construct the API endpoint for API sandbox by combining info from destination and TRANSLATION_PATH. Create HttpPost request using the created URL.
-            //HttpPost postRequest = new HttpPost(mlDestination.getUri().resolve(TRANSLATION_PATH));
+            HttpPost postRequest = new HttpPost(mlDestination.getUri().resolve(TRANSLATION_PATH));
 
             // TODO 3. Set additional postRequest headers: "Content-Type", "application/json" and "Accept", "application/json;charset=UTF-8"
-            //postRequest.setHeader("Content-Type", "application/json");
-            //postRequest.setHeader("Accept", "application/json;charset=UTF-8");
+            postRequest.setHeader("Content-Type", "application/json");
+            postRequest.setHeader("Accept", "application/json;charset=UTF-8");
 
             // TODO 4. Using the Destination object retrieve APIKey and add it to the postReqwuest header
-            //final String apiKey = mlDestination.getPropertiesByName().get("API_KEY");
-            //if (Strings.isNullOrEmpty(apiKey)) {
-            //    throw new IllegalStateException("Missing API_KEY destination property");
-            //}
-            //postRequest.setHeader("APIKey", apiKey);
+            final String apiKey = mlDestination.getPropertiesByName().get("API_KEY");
+            if (Strings.isNullOrEmpty(apiKey)) {
+                throw new IllegalStateException("Missing API_KEY destination property");
+            }
+            postRequest.setHeader("APIKey", apiKey);
 
             // TODO: Add body, execute the request and parse the response
-            /*
+            
             // Add http body
             HttpEntity body = new StringEntity(requestJson, ContentType.APPLICATION_JSON);
             postRequest.setEntity(body);
@@ -88,7 +88,7 @@ public class TranslateServlet extends HttpServlet
             } finally {
                 postRequest.releaseConnection();
             }
-            */
+            
 
         } catch (Exception e) {
             logger.error("Failure: " + e.getMessage(), e);
