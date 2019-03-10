@@ -24,8 +24,8 @@ stages:
       - '**/com/sap/cloud/s4hana/examples/addressmgr/blockchain/**'
   integrationTests:
     credentials:
-      - alias: 'MOCK_SYSTEM'
-        credentialId: 'MOCK'
+      - alias: 'S4HANA'
+        credentialId: 'S4HANA'
 
 #  s4SdkQualityChecks:
 #    jacocoExcludes:
@@ -35,13 +35,12 @@ stages:
 
   s4SdkQualityChecks:
     jacocoExcludes:
-      - '**/com/sap/cloud/s4hana/examples/addressmgr/machinelearning/**'
-      - '**/com/sap/cloud/s4hana/examples/addressmgr/blockchain/**'
+      - '**/com/sap/cloud/s4hana/examples/addressmgr/**'
 
   productionDeployment:
     cfTargets:
-      - org: 'P2000389027trial_trial'
+      - org: 'P2001166740trial_P2001166740trial'
         space: 'dev'
-        apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
+        apiEndpoint: 'https://api.cf.us30.hana.ondemand.com'
         credentialsId: 'cf-deploy'
         
