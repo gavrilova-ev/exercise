@@ -1,6 +1,7 @@
 #Project Setup
 general:
   productiveBranch: 'master'
+  unsafeMode: true
 
 #Steps Specific Configuration
 steps:
@@ -27,9 +28,9 @@ stages:
       - alias: 'S4HANA'
         credentialId: 'S4HANA'
 
-#  s4SdkQualityChecks:
-#    jacocoExcludes:
-#      - ''
+  s4SdkQualityChecks:
+    jacocoExcludes:
+      - '**/com/sap/cloud/s4hana/examples/addressmgr/machinelearning/**'
 #    nonErpDestinations:
 #      - ''
 
